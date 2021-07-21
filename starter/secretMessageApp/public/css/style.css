@@ -29,3 +29,9 @@ input {
 a {
   font-weight: 600;
 }
+
+#lockout-message {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -14,7 +14,7 @@
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <script src="js/viewMessages.js"></script>
+    <script defer src="js/viewMessages.js"></script>
   </head>
 
   <body>
@@ -22,9 +22,17 @@
         <div class="content">
             <h2 class="has-text-centered mt-6">View Your Messages!</h2>
         </div>
-        <div id="passcodeInput" class="hero-body has-text-centered">
+        <article id="lockout-message" class="message is-danger" style="display: none;">
+            <div class="message-header">
+                <p>Locked out</p>
+            </div>
+            <div class="message-body">
+                <p>Due to multiple incorrect attempts, you have been locked out from entering anymore passcodes. Please wait around 20 seconds to try again.</p>
+            </div>
+        </article>
+        <div id="passcodeInputDiv" class="hero-body has-text-centered">
             <div class="login">
-            <form action="javascript:void(0);">
+            <form id="passcodeInputForm" action="javascript:getMessages();">
                 <div class="field">
                     <div class="control">
                         <input class="input is-medium is-rounded" type="text" placeholder="What's the passcode?" id="passcode" required />
@@ -35,10 +43,21 @@
                 </button>
             </form>
             <br>
+            <p id="attempts">Attempts: 5/5</p>
             </div>
         </div>
+        <button class="button is-primary is-medium is-rounded" type="submit" id="otherPasscode" style="width:15%; margin-left:auto; margin-right:auto; display: none;">
+            Click Here to Reset
+        </button>
+        <br>
         <section class="container">
-            <h2 id="message" class="subtitle is-4"></h2>
+            <div id="cardMessage" style="border-radius:25px; display:none;" class="card has-background-primary">
+                <div class="card-content">
+                    <div class="content">
+                        <p id="message" class="subtitle"></p>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </section>
