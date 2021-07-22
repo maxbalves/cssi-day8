@@ -31,7 +31,7 @@
       <div class="hero-body has-text-centered">
         <div class="login">
           <img src="https://image.freepik.com/free-vector/colorful-speech-bubbles-set_74855-6314.jpg" width="325px" />
-          <form action="javascript:void(0);">
+          <form action="javascript:submitMessages();">
             <div class="field">
               <div class="control">
                 <input class="input is-medium is-rounded" type="text" id="passcode" placeholder="Enter a passcode" autocomplete="username" required />
@@ -39,7 +39,7 @@
             </div>
             <div class="field">
               <div class="control">
-                <textarea class="textarea is-medium is-rounded" type="text" id="message" placeholder="Share a secret message with your friend!" autocomplete="current-password" required></textarea>
+                <textarea class="textarea is-medium is-rounded" maxlength="140" type="text" id="message" placeholder="Share a secret message with your friend!" autocomplete="current-password" required></textarea>
               </div>
             </div>
             <br />

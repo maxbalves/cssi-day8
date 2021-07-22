@@ -1,19 +1,20 @@
 const messagesRef = firebase.database().ref();
 const messageInput = document.querySelector("#message");
-const messageInput = document.querySelector("#passcode");
+const passcodeInput = document.querySelector("#passcode");
 
-// Pushing an object (appends)
-messagesRef.push({
-    message: "This was made with JavaScript",
-    passcode: "JavaScript",
-});
+const submitMessages = () => {
+    let m = messageInput.value;
+    let p = passcodeInput.value;
 
-
-// const submitMessages = () => {
-//     let m;
-//     let p;
-//     messagesRef.push({
-//         message: m,
-//         passcode: p
-//     });
-// };
+    if(m.length > 140){
+        alert(`Message is too big. You are limited to 140 characters.\nCurrent characters: ${m.length}`)
+    } else {
+        messagesRef.push({
+            message: m,
+            passcode: p
+        });
+        console.log("new message/passcode submitted");
+        passcodeInput.value = "";
+        messageInput.value = "";
+    }
+};
