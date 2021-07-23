@@ -15,6 +15,7 @@
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script defer src="js/hashes.js"></script>
     <script defer src="js/writeMessage.js"></script>
   </head>
 
@@ -34,7 +35,7 @@
           <form action="javascript:submitMessages();">
             <div class="field">
               <div class="control">
-                <input class="input is-medium is-rounded" type="text" id="passcode" placeholder="Enter a passcode" autocomplete="username" required />
+                <input class="input is-medium is-rounded" autocomplete="off" type="text" id="passcode" placeholder="Enter a passcode" autocomplete="username" required />
               </div>
             </div>
             <div class="field">

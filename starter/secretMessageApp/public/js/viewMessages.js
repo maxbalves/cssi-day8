@@ -9,6 +9,8 @@ const lockMessage = document.querySelector('#lockout-message'); // text of how m
 
 let attempts = 5;
 
+let SHA256_Hasher = new Hashes.SHA256;  // creating our sha256 hasher
+
 const getMessages = () => {
     // Firebase object -> we grab database -> and then a reference to that database
     const messagesRef = firebase.database().ref();
@@ -25,7 +27,7 @@ const findMessage = (messages) => {
     let found = false;
     for(let message in messages){  // for every `unique` in `data`
         const messageData = messages[message];  // messageData = unique element
-        if(myPass == messageData.passcode){
+        if(SHA256_Hasher.hex(myPass) == messageData.passcode){
             found = true;
             attempts = 5;
             renderMessage(messageData);
